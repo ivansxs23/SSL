@@ -1,8 +1,16 @@
 #include <stdio.h>
 
-
-int main(){
-
-printf("hello, world!\n");
+int main() {
+    FILE *file = fopen("output.txt", "w");
+    
+    if (file == NULL) {
+        perror("Error al abrir el archivo");
+        return 1;
+    }
+    
+    fprintf(file, "Hello, World!\n");
+    
+    fclose(file);
+    
     return 0;
 }
